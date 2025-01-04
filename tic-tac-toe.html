@@ -38,9 +38,24 @@
         .cell.faded {
             opacity: 0.5; /* Make the cell faded */
         }
+        body.dark {
+            background-color: #333;
+            color: #fff;
+        }
+        .cell.dark {
+            background-color: #444;
+            border-color: #fff;
+        }
+        .cell.x.dark {
+            color: #ff6666; /* Lighter red for dark theme */
+        }
+        .cell.o.dark {
+            color: #6666ff; /* Lighter blue for dark theme */
+        }
     </style>
 </head>
 <body>
+    <button id="theme-toggle">Toggle Dark Theme</button>
     <div class="board" id="board">
         <div class="cell" data-index="0"></div>
         <div class="cell" data-index="1"></div>
@@ -112,6 +127,12 @@
         }
 
         cells.forEach(cell => cell.addEventListener('click', handleClick));
+
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            cells.forEach(cell => cell.classList.toggle('dark'));
+        });
     </script>
 </body>
 </html>

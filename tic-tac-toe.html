@@ -35,6 +35,9 @@
         .cell.o {
             color: blue; /* Color for O */
         }
+        .cell.faded {
+            opacity: 0.5; /* Make the cell faded */
+        }
     </style>
 </head>
 <body>
@@ -85,6 +88,12 @@
                 const firstMoveIndex = moves[currentPlayer].shift();
                 gameState[firstMoveIndex] = null;
                 cells[firstMoveIndex].textContent = '';
+                cells[firstMoveIndex].classList.remove('faded', currentPlayer.toLowerCase());
+            }
+
+            if (moves[currentPlayer].length === 3) {
+                const firstMoveIndex = moves[currentPlayer][0];
+                cells[firstMoveIndex].classList.add('faded');
             }
 
             if (checkWinner()) {

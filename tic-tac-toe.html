@@ -74,7 +74,7 @@
             cell.textContent = currentPlayer;
             moves[currentPlayer].push(index);
 
-            if (moves[currentPlayer].length > 4) {
+            if (moves[currentPlayer].length > 3) {
                 const firstMoveIndex = moves[currentPlayer].shift();
                 gameState[firstMoveIndex] = null;
                 cells[firstMoveIndex].textContent = '';

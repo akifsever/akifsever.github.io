@@ -24,10 +24,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2em;
+            font-size: 3em; /* Increase the font size */
             background-color: #fff;
             border: 1px solid #000;
             cursor: pointer;
+        }
+        .cell.x {
+            color: red; /* Color for X */
+        }
+        .cell.o {
+            color: blue; /* Color for O */
         }
     </style>
 </head>
@@ -72,9 +78,10 @@
 
             gameState[index] = currentPlayer;
             cell.textContent = currentPlayer;
+            cell.classList.add(currentPlayer.toLowerCase()); // Add class for color
             moves[currentPlayer].push(index);
 
-            if (moves[currentPlayer].length > 3) {
+            if (moves[currentPlayer].length > 2) {
                 const firstMoveIndex = moves[currentPlayer].shift();
                 gameState[firstMoveIndex] = null;
                 cells[firstMoveIndex].textContent = '';

@@ -81,7 +81,7 @@
             cell.classList.add(currentPlayer.toLowerCase()); // Add class for color
             moves[currentPlayer].push(index);
 
-            if (moves[currentPlayer].length > 2) {
+            if (moves[currentPlayer].length > 3) {
                 const firstMoveIndex = moves[currentPlayer].shift();
                 gameState[firstMoveIndex] = null;
                 cells[firstMoveIndex].textContent = '';
